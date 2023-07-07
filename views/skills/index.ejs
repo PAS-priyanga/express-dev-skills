@@ -8,15 +8,18 @@
 </head>
 <body>
     <h1>skills</h1>
+    <<%- include('../partials/header') %>
+
     <ul>
       <% skills.forEach(function(t) { %>
         <li>
           <a href="/skills/<%= t.id %>"><%= t.skill %></a>
-          <%= t.skill %>
             - 
           <%= t.done ? 'done' : 'not done' %>
         </li>
       <% }); %>
     </ul>
+  
+  <%- include('../partials/footer') %>
   </body>
 </html>
