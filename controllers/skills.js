@@ -19,6 +19,25 @@ const Skill = require('../models/skill');
   });
 }
 
+
+
  module.exports = {
-   index,show
- };
+   index,show,new:newSkill,create,delete:deleteskill} 
+ ;
+
+ function newSkill(req, res) {
+  res.render('skills/new', { title: 'New Skill' });
+}
+
+function create(req, res) {
+  console.log(req.body);
+  // The model is responsible for creating data
+  Skill.create(req.body);
+  // Do a redirect anytime data is changed
+  res.redirect('/skills');
+}
+
+function deleteskill(req, res) {
+  skill.deleteOne(req.params.id);
+  res.redirect('/skills');
+}
